@@ -98,7 +98,7 @@ def try_extract(value):
     """
     Attempt to extract a meaningful value from the time.
     """
-    if value == "--":
+    if value == "--" or value == "0":
         return 0
 
     get_float = int_or_string(value)
