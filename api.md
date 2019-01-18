@@ -277,7 +277,7 @@ This is a mapping of category -> hash which is another mapping of achievement ->
     "_request": {
         "api_ver": 3,
         "route": "/api/v3/u/Dad-12262/achievements"
-    }
+    },
     "any": {
         "stats": { },
         "heroes": {
