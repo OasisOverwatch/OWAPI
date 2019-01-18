@@ -171,9 +171,12 @@ async def get_heroes_qp(ctx: HTTPRequestContext, battletag: str):
             return {"error": "Private"}, 403
 
         d = {
-            "heroes": {"playtime": {"competitive": {}, "quickplay": {}},
-                       "stats": {"competitive": {}, "quickplay": {}}},
+            "heroes": {"playtime": {"quickplay": {}},
+                       "stats": {"quickplay": {}}},
+            "stats": {}
         }
+
+        d["stats"]["quickplay"] = parsing.bl_parse_stats(result, status=status)
 
         d["heroes"]["stats"]["quickplay"] = parsing.bl_parse_hero_data(result)
 
@@ -205,18 +208,13 @@ async def get_heroes_comp(ctx: HTTPRequestContext, battletag: str):
 
         d = {
             "heroes": {
-                "playtime":
-                    {
-                        "competitive": {},
-                        "quickplay": {}
-                    },
-                "stats":
-                    {
-                        "competitive": {},
-                        "quickplay": {}
-                    }
+                "playtime": {"competitive": {}},
+                "stats": {"competitive": {}}
             },
+            "stats": {}
         }
+
+        d["stats"]["competitive"] = parsing.bl_parse_stats(result, mode="competitive", status=status)
 
         d["heroes"]["stats"]["competitive"] = parsing.bl_parse_hero_data(result, mode="competitive")
 
