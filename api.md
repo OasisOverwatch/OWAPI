@@ -10,8 +10,8 @@ Regions and platforms can be overridden with URL parameters.
 
 ### Regions (V3)
 
-In V3, all regions are automatically checked. Data is returned for any regions the user is in. The other regions return
-`null`. See V3 results below.
+Blizzard has somewhat recently changed regions such that there are no region-specific statistics anymore. All region-
+specific endpoints automatically redirect to remove the region, and region data ends up resulting in duplicate data.
 
 ### Platforms
 
@@ -21,15 +21,15 @@ You can override the platform with `?platform=<pc|xbl|psn>`. This defaults to `p
 
 The default output is standard JSON, but you can prettify it with `?format=json_pretty` to have it
 in a more readable format. (The other option is installing a browser plugin, such as
-[JSONView](https://jsonview.com/).
+[JSONView](https://jsonview.com/)).
 
 #### Field formatting
 
 Field names inside the inner dict will correspond to all of the cards shown inside the
-[PlayOverwatch](https://playoverwatch.com/en-us/career/pc/eu/Downy-2877) pages corresponding to
+[PlayOverwatch](https://playoverwatch.com/en-us/career/pc/Downy-2877) pages corresponding to
 the users, with a slight formatting tweak:
 
- - All nonalphanumeric characters are removed
+ - All non-alphanumeric characters are removed
  - All spaces are replaced with underscores
  - The entire fields are lowercase
 
@@ -62,15 +62,11 @@ Unless otherwise specified, time fields are always in ***hours***.
         "api_ver": 3,
         "route": "/api/v3/u/Dad-12262/blob"
     },
-    "kr": null,
-    "eu": null,
-    "us": {
+    "any": {
         "stats": {},
         "heroes": {},
         "achievements": {}
-    },
-    "any": null
-
+    }
 }
 ```
 
@@ -99,14 +95,11 @@ Each of these will have several other keys:
 
 ```json
 {
-
     "_request": {
         "api_ver": 3,
         "route": "/api/v3/u/Dad-12262/stats"
     },
-    "kr": null,
-    "eu": null,
-    "us": {
+    "any": {
         "stats": {
             "competitive": {
                 "overall_stats": {
@@ -264,9 +257,7 @@ Each of these will have several other keys:
             }
         },
         "achievements": { }
-    },
-    "any": null
-
+    }
 }
 ```
 
@@ -283,14 +274,11 @@ This is a mapping of category -> hash which is another mapping of achievement ->
 
 ```json
 {
-
     "_request": {
         "api_ver": 3,
         "route": "/api/v3/u/Dad-12262/achievements"
-    },
-    "kr": null,
-    "eu": null,
-    "us": {
+    }
+    "any": {
         "stats": { },
         "heroes": {
             "stats": {
@@ -377,9 +365,7 @@ This is a mapping of category -> hash which is another mapping of achievement ->
                 "double_cap": true
             }
         }
-    },
-    "any": null
-
+    }
 }
 ```
 
@@ -405,14 +391,11 @@ The `heroes` key will contain two subkeys, inside the respective `quickplay` and
 
 ```json
 {
-
     "_request": {
         "api_ver": 3,
         "route": "/api/v3/u/Dad-12262/heroes"
     },
-    "kr": null,
-    "eu": null,
-    "us": {
+    "any": {
         "stats": { },
         "heroes": {
             "stats": {
@@ -561,8 +544,6 @@ The `heroes` key will contain two subkeys, inside the respective `quickplay` and
             }
         },
         "achievements": { }
-    },
-    "any": null
-
+    }
 }
 ```
