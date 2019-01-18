@@ -34,7 +34,8 @@ hero_data_div_ids = {
     "doomfist": "0x02E000000000012F",
     "moira": "0x02E00000000001A2",
     "brigitte": "0x02E0000000000195",
-    "wrecking_ball": "0x02E00000000001CA"
+    "wrecking_ball": "0x02E00000000001CA",
+    "ashe": "0x02E0000000000200"
 }
 
 tier_data_img_src = {
@@ -348,7 +349,7 @@ def bl_parse_all_heroes(parsed, mode="quickplay"):
     _hero_info = _root.xpath(".//div[@data-group-id='comparisons' and "
                              "@data-category-id='0x0860000000000021']")[0]
     hero_info = _hero_info.findall(".//div[@class='ProgressBar-textWrapper']")
-    print(etree.tostring(_hero_info))
+    #print(etree.tostring(_hero_info))
 
     # Loop over each one, extracting the name and hours counted.
     percent_per_second = None
