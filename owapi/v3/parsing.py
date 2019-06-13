@@ -35,7 +35,8 @@ hero_data_div_ids = {
     "moira": "0x02E00000000001A2",
     "brigitte": "0x02E0000000000195",
     "wrecking_ball": "0x02E00000000001CA",
-    "ashe": "0x02E0000000000200"
+    "ashe": "0x02E0000000000200",
+    "baptiste": "0x02E0000000000221"
 }
 
 tier_data_img_src = {
@@ -120,7 +121,7 @@ def bl_parse_stats(parsed, mode="quickplay", status=None):
             prestige_num = None
 
     # If we have prestige values, return them. Otherwise, return None
-    if prestige_num is not None or prestige_stars is not None:
+    if prestige_num is not None and prestige_stars is not None:
         built_dict["overall_stats"]["prestige"] = prestige_num + prestige_stars
     else:
         built_dict["overall_stats"]["prestige"] = None
