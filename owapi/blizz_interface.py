@@ -69,8 +69,13 @@ def _parse_page_lxml(content: str) -> etree._Element:
         return data
 
 
-async def get_user_page(ctx: HTTPRequestContext, battletag: str, platform: str = "pc",
-                        cache_time=300, cache_404=False) -> etree._Element:
+async def get_user_page(
+    ctx: HTTPRequestContext,
+    battletag: str,
+    platform: str = "pc",
+    cache_time=300,
+    cache_404=False,
+) -> etree._Element:
     """
     Downloads the BZ page for a user, and parses it.
     """
